@@ -1,0 +1,12 @@
+<h2>Books:</h2>
+<ol>
+{% for book in books %}
+<li>
+    <h3><a href="{% url 'book_view' book.id %}">{{book.title}}</a></h3>
+    {% for author in book.author_id.all %}
+    Author: <a href="{% url 'author_view' author.id %}">{{ author }}</a><br>
+    {% endfor %}
+    Genre: {{book.genre_id.name}}
+</li>
+{% endfor %}
+</ol>

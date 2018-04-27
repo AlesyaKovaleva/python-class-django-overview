@@ -1,0 +1,8 @@
+<h2>Publishers:</h2>
+<ol>
+{% for publisher in publishers %}
+<li>
+    <h3><a href="{% url 'publisher_view' publisher.id %}">{{ publisher }}</a></h3>
+</li>
+{% endfor %}
+</ol>

@@ -1,0 +1,17 @@
+<h2>{{publisher}}</h2>
+
+<h3>Address: {{ publisher.address }}
+<br>Contacts: {{ publisher.contacts }}<br>
+<br>Authors:</h3>
+<ol>
+    {% for author, author_books in books.items %}
+    <li>
+        <p><a href="{% url 'author_view' author.id %}"><b>{{ author }}</b></a></p></li>
+        {% if author_books %}
+        Books:
+        {% for book in author_books %}
+        | <a href="{% url 'book_view' book.id %}">{{ book }}</a>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ol>

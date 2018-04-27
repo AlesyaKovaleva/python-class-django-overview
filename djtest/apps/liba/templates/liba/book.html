@@ -1,0 +1,15 @@
+<h2>"{{book.title}}"</h2>
+<h3>Genre: {{ book.genre_id.name }}</h3>
+<h3>Authors:</h3>
+<ul>
+{% for author in book.author_id.all %}
+     <li><a href="{% url 'author_view' author.id %}">{{ author }}</a></li>
+{% endfor %}
+</ul>
+<h3>Publisher:</h3>
+<ul>
+     <li><a href="{% url 'publisher_view' book.publisher_id.id %}">{{ book.publisher_id }}</a>
+          {% for circulation in book.circulation.all %}
+          ({{ circulation }})</li>
+          {% endfor %}
+</ul>

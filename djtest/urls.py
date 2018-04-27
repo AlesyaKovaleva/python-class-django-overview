@@ -21,4 +21,5 @@ from django.conf.urls import include
 urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'numbers/', include('nums.urls')),
+    path(r'liba/', include('liba.urls')),
 ]

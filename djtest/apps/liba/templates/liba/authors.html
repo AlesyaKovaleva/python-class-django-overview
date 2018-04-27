@@ -1,0 +1,12 @@
+<h2>Authors:</h2>
+<ol>
+{% for author in authors %}
+<li>
+    <h3><a href="{% url 'author_view' author.id %}">{{ author }}</a></h3>
+    {% for book in author.get_books %}
+    Book: <a href="{% url 'book_view' book.id %}">{{ book }}</a>
+    (Publisher: <a href="{% url 'publisher_view' book.publisher_id.id %}">{{ book.publisher_id }}</a>)<br>
+    {% endfor %}
+</li>
+{% endfor %}
+</ol>
